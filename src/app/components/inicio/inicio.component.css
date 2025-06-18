@@ -1,0 +1,58 @@
+/* Fondo general */
+body {
+  background-color: #f5f5f5;  /* Fondo gris claro tipo Pinterest */
+}
+
+/* Estilo de los títulos */
+h1 {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 700;
+  color: #e60023;  /* Color rojo tipo Pinterest */
+}
+
+/* Estilo de las tarjetas */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 15px;  /* Espaciado entre las tarjetas */
+}
+
+/* Imágenes dentro de las tarjetas */
+.card-img-top {
+  height: 250px;  /* Establecemos un tamaño fijo para las imágenes */
+  object-fit: cover;
+  border-bottom: 2px solid #e5e5e5;  /* Borde sutil debajo de la imagen */
+}
+
+/* Estilo del cuerpo de la tarjeta */
+.card-body {
+  background-color: white;
+  padding: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Títulos dentro de las tarjetas */
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo de los textos dentro de las tarjetas */
+.card-text {
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Diseño responsivo para la cuadrícula */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 200px;
+  }
+  .card-body {
+    padding: 10px;
+  }
+}

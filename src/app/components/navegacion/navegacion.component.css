@@ -1,0 +1,71 @@
+/* Estilo para la barra de navegación */
+.navbar {
+  background-color: #333;  /* Fondo oscuro */
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Sombra sutil */
+  transition: background-color 0.3s ease;  /* Transición suave al cambiar el fondo */
+}
+
+.navbar:hover {
+  background-color: #222;  /* Fondo más oscuro cuando se pasa el mouse */
+}
+
+/* Estilo para los enlaces del menú */
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 8px 20px;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e60023 !important;  /* Color rojo tipo Pinterest */
+  text-decoration: underline;  /* Subrayado al pasar el mouse */
+}
+
+/* Estilo para la barra de búsqueda */
+.form-control {
+  width: 250px;
+  border-radius: 25px;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #e60023;  /* Color del borde cuando el campo de búsqueda está enfocado */
+}
+
+.btn-outline-light {
+  border: 1px solid #e60023;
+  color: #e60023;
+  border-radius: 25px;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: #e60023;
+  color: white;
+}
+
+/* Estilo para el logo */
+.navbar-brand img {
+  margin-right: 10px;
+}
+
+/* Estilo del fondo cuando la barra de navegación está fija */
+.fixed-top {
+  z-index: 1030;  /* Asegura que la barra de navegación quede por encima del contenido */
+}
+
+/* Estilo para la barra de navegación en pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 15px 20px;  /* Más espacio en los enlaces para pantallas pequeñas */
+  }
+}

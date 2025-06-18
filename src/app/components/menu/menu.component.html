@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <h2 class="text-center text-danger mb-4">Menú de Pinterest</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let foto of fotos">
+        <td>{{ foto.nombrePrenda }}</td>
+        <td>{{ foto.valor || 'No description available' }}</td>
+        <td>
+          <button *ngIf="foto.url" class="btn btn-primary">Show Images</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="selectedFotoLinks.length > 0" class="mt-4">
+    <h3>Related Images</h3>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let link of selectedFotoLinks">
+        <img [src]="link" class="img-fluid rounded" alt="Related Image">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+/* Estilo de la tabla */
+table {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Estilo de los botones en la tabla */
+.btn-primary {
+  background-color: #e60023;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+.btn-primary:hover {
+  background-color: #b8001d;
+}
