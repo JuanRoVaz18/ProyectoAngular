@@ -17,3 +17,22 @@ table {
 .btn-primary:hover {
   background-color: #b8001d;
 }
+
+/* Mejora visual del detalle */
+img {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Badges */
+.badge {
+  font-size: 0.85rem;
+}
+
+/* Responsive en filas */
+@media (max-width: 767px) {
+  .row.p-3 {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent implements OnInit {
   fotos: Foto[] = [];
+  selectedFotoId: number | null = null;
   selectedFotoLinks: string[] = [];
 
   constructor(private recursosService: RecursosService) { }
@@ -21,7 +22,20 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  showImages(links: { href: string }[]): void {
-    this.selectedFotoLinks = links.map(link => link.href);
+  //showImages(links: { href: string }[]): void {
+  //  this.selectedFotoLinks = links.map(link => link.href);
+  //}
+
+  showImages(foto: Foto): void {
+    if (this.selectedFotoId === foto.id) {
+    // Si ya está seleccionada, la ocultamos
+    this.selectedFotoId = null;
+    this.selectedFotoLinks = [];
+  } else {
+    this.selectedFotoId = foto.id;
+    this.selectedFotoLinks = [foto.url];
   }
+}
+
+  
 }
