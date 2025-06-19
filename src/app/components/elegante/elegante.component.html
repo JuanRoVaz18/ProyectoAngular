@@ -1,39 +1,55 @@
-<section class="container mt-5">
-  <h2 class="text-center text-light mb-4">Inspiración Elegante ✨</h2>
+<section class="container elegante-bg my-5 py-4 px-3 rounded">
+  <h2 class="text-center fw-bold mb-4 text-uppercase" style="color: #1c2c54;">Inspiración Elegante ✨</h2>
+
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     <div class="col" *ngFor="let prenda of prendasElegantes">
       <div class="card h-100 shadow-sm border-0 position-relative">
-        
-        <!-- Botón de favorito (corazón) -->
+
+        <!-- Botón de favorito -->
         <button 
           class="btn position-absolute top-0 end-0 m-2 border-0 bg-white-50 rounded-circle shadow-sm"
           (click)="toggleFavorito(prenda)"
           style="width: 40px; height: 40px; z-index: 1;">
           <i 
             class="fas fa-heart" 
-            [ngStyle]="{'color': esFavorito(prenda) ? '#e60023' : '#ccc', 'font-size': '18px'}">
+            [ngStyle]="{
+              color: esFavorito(prenda) ? '#E88D67' : '#ccc',
+              fontSize: '18px'
+            }">
           </i>
         </button>
 
+        <!-- Imagen -->
         <img [src]="prenda.url" class="card-img-top object-fit-cover" alt="{{ prenda.nombrePrenda }}" style="height: 300px;">
-        <div class="card-body">
-          <h5 class="card-title">{{ prenda.nombrePrenda }}</h5>
-          <p class="card-text mb-1"><strong>Valor:</strong> ${{ prenda.valor }}</p>
-          <p class="card-text mb-1"><strong>Género:</strong> {{ prenda.generoPrenda }}</p>
-          <p class="card-text mb-1"><strong>Usuario:</strong> {{ prenda.usuario }}</p>
-          <button class="btn btn-outline-secondary btn-sm mt-2" (click)="toggleEtiquetas(prenda.id)">
-            {{ mostrarEtiquetas(prenda.id) ? 'Ocultar etiquetas' : 'Ver etiquetas' }}
-          </button>
-          <div *ngIf="mostrarEtiquetas(prenda.id)" class="mt-2">
-            <span *ngFor="let tag of prenda.etiquetas" class="badge bg-dark-subtle text-dark me-1">{{ tag }}</span>
+
+        <!-- Contenido -->
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <h5 class="card-title" style="color: #1c2c54;">{{ prenda.nombrePrenda }}</h5>
+            <p class="card-text mb-1"><strong>Valor:</strong> ${{ prenda.valor }}</p>
+            <p class="card-text mb-1"><strong>Género:</strong> {{ prenda.generoPrenda }}</p>
+            <p class="card-text mb-1"><strong>Usuario:</strong> {{ prenda.usuario }}</p>
+          </div>
+
+          <!-- Botón etiquetas -->
+          <div class="mt-3">
+            <button class="btn btn-outline-secondary btn-sm w-100" (click)="toggleEtiquetas(prenda.id)">
+              {{ mostrarEtiquetas(prenda.id) ? 'Ocultar etiquetas' : 'Ver etiquetas' }}
+            </button>
+
+            <!-- Etiquetas -->
+            <div *ngIf="mostrarEtiquetas(prenda.id)" class="mt-2">
+              <span *ngFor="let tag of prenda.etiquetas" class="badge me-1">{{ tag }}</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Mensaje si no hay prendas elegantes -->
+  <!-- Sin resultados -->
   <div *ngIf="prendasElegantes.length === 0" class="text-center mt-4">
-    <p class="text-light">No se encontraron prendas elegantes.</p>
+    <i class="fas fa-hat-cowboy text-secondary mb-3" style="font-size: 3rem; opacity: 0.5;"></i>
+    <p class="text-secondary">No se encontraron prendas elegantes.</p>
   </div>
 </section>
