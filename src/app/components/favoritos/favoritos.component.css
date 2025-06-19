@@ -1,0 +1,88 @@
+:host {
+  --primary-coral: #E88D67;
+  --secondary-cream: #F3F7EC;
+  --accent-teal: #006989;
+  --dark-teal: #005C78;
+  --text-primary: #2c2c2c;
+  --text-secondary: #666666;
+}
+
+/* Título principal */
+.titulo-favoritos {
+  color: var(--accent-teal);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: -0.5px;
+}
+
+/* Tarjeta de favoritos */
+.favorito-card {
+  background-color: var(--secondary-cream);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.favorito-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón de quitar favorito */
+.btn-quitar-fav {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.btn-quitar-fav:hover {
+  background-color: var(--primary-coral);
+}
+
+.btn-quitar-fav:hover i {
+  color: white !important;
+}
+
+/* Mensaje si no hay favoritos */
+.empty-fav-message i {
+  opacity: 0.4;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--text-secondary);
+}
+
+.empty-fav-message h4,
+.empty-fav-message p {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  .favorito-card img {
+    height: 220px !important;
+    object-fit: cover;
+  }
+
+  .btn-quitar-fav {
+    width: 36px;
+    height: 36px;
+  }
+
+  .titulo-favoritos {
+    font-size: 1.6rem;
+  }
+}

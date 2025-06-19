@@ -1,0 +1,35 @@
+<section class="container my-5">
+  <h2 class="titulo-favoritos">Mis Favoritos ❤️</h2>
+  
+  <!-- Lista de favoritos -->
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" *ngIf="favoritos.length > 0">
+    <div class="col" *ngFor="let prenda of favoritos">
+      <div class="card favorito-card h-100 position-relative">
+        
+        <!-- Botón para quitar de favoritos -->
+        <button 
+          class="btn-quitar-fav position-absolute top-0 end-0 m-2"
+          (click)="quitarFavorito(prenda)">
+          <i class="fas fa-heart" style="color: #e60023; font-size: 18px;"></i>
+        </button>
+
+        <img [src]="prenda.url" class="card-img-top object-fit-cover" alt="{{ prenda.nombrePrenda }}" style="height: 300px;">
+        
+        <div class="card-body">
+          <h5 class="card-title">{{ prenda.nombrePrenda }}</h5>
+          <p class="card-text mb-1"><strong>Valor:</strong> ${{ prenda.valor }}</p>
+          <p class="card-text mb-1"><strong>Género:</strong> {{ prenda.generoPrenda }}</p>
+          <p class="card-text mb-1"><strong>Usuario:</strong> {{ prenda.usuario }}</p>
+          <p class="card-text mb-1"><strong>Categoría:</strong> {{ prenda.categoria }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay favoritos -->
+  <div *ngIf="favoritos.length === 0" class="text-center mt-5 empty-fav-message">
+    <i class="fas fa-heart-broken mb-3"></i>
+    <h4>No tienes favoritos aún</h4>
+    <p>Explora nuestras categorías y agrega prendas que te gusten haciendo clic en el corazón ❤️</p>
+  </div>
+</section>

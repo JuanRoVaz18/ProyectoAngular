@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h2 class="text-center text-danger mb-4">Indice de ropa</h2>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-container *ngFor="let foto of fotos">
+        <tr>
+          <td>{{ foto.nombrePrenda }}</td>
+          <td>${{ foto.valor || 'No description available' }}</td>
+          <td>
+            <button *ngIf="foto.url" class="btn btn-primary" (click)="showImages(foto)">
+              {{ selectedFotoId === foto.id ? 'Hide Details' : 'Show Images' }}
+            </button>
+          </td>
+        </tr>
+
+        <!-- Fila expandida con detalles e imagen -->
+        <tr *ngIf="selectedFotoId === foto.id">
+          <td colspan="3">
+            <div class="row p-3 border rounded shadow-sm bg-light animate__animated animate__fadeIn">
+              <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img [src]="foto.url" class="img-fluid rounded shadow" alt="{{ foto.nombrePrenda }}" style="max-height: 300px;">
+              </div>
+              <div class="col-md-8">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <!--<h5 class="mb-0">{{ foto.nombrePrenda }}</h5>-->
+                </div>
+                <p><strong>Usuario:</strong> {{ foto.usuario }}</p>
+                <p><strong>Género:</strong> {{ foto.generoPrenda }}</p>
+                <p><strong>Categoría:</strong> {{ foto.categoria | titlecase }}</p>
+                <div>
+                  <strong>Etiquetas: </strong>
+                  <span *ngFor="let tag of foto.etiquetas" class="badge bg-secondary me-1">{{ tag }}</span>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

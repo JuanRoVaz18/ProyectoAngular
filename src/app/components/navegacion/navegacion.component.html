@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom px-4">
+  <a class="navbar-brand fw-bold fs-4" routerLink="/">Style Board</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav align-items-center">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/menu">Menu</a>
+      </li>
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="categoriasDropdown" role="button" 
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Categorías
+      </a>
+        <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="categoriasDropdown">
+          <li><a class="dropdown-item" routerLink="/elegante">Elegante</a></li>
+          <li><a class="dropdown-item" routerLink="/casual">Casual</a></li>
+          <li><a class="dropdown-item" routerLink="/deportivo">Deportivo</a></li>
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/aboutus">Sobre Nosotros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-danger" routerLink="/favoritos">Favoritos ♥</a>
+      </li>
+      
+    </ul>
+  </div>
+</nav>

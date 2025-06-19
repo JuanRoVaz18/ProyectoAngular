@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://superexitoec.vteximg.com.br/arquivos/ids/162727-1000-1000/3620986583.jpg?v=638221383275300000",
+    "valor": 25.99,
+    "usuario": "juan123",
+    "nombrePrenda": "Camiseta de Algodón",
+    "generoPrenda": "Masculino"
+  },
+  {
+    "url": "https://www.smilevistealamoda.com/6287-home_default/blusa-floral.jpg",
+    "valor": 15.49,
+    "usuario": "ana456",
+    "nombrePrenda": "Blusa Floral",
+    "generoPrenda": "Femenino"
+  },
+  {
+    "url": "https://m.media-amazon.com/images/I/81WmLdTTjaS._AC_SL1500_.jpg",
+    "valor": 40.00,
+    "usuario": "luis789",
+    "nombrePrenda": "Chaqueta de Cuero",
+    "generoPrenda": "Masculino"
+  },
+  {
+    "url": "https://www.modarm.com/medias/000005000001010479-1200-1.webp?context=bWFzdGVyfGltYWdlc3wxMzI0NjR8YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFtfGFEZGpMMmc0T1M4MU1UZ3pOakl3TmpnM05EWTFOQzh3TURBd01EVXdNREF3TURFd01UQTBOemt0TVRJd01GOHhMbmRsWW5BfDQwMTIyNGMwNWYxZWM1OWFlYWY2YTU4MmU1ZTYxMTU0NWZkOTI4NmUxMThlMzViZWIyZjc5ZjdjYmQ5MTIwNjQ",
+    "valor": 30.75,
+    "usuario": "maria321",
+    "nombrePrenda": "Vestido de Noche",
+    "generoPrenda": "Femenino"
+  }
+]
