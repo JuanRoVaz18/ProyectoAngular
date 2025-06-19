@@ -1,58 +1,419 @@
-/* Fondo general */
-body {
-  background-color: #f5f5f5;  /* Fondo gris claro tipo Pinterest */
+/* Variables de colores */
+:host {
+  --primary-coral: #E88D67;
+  --secondary-cream: #F3F7EC;
+  --accent-teal: #006989;
+  --dark-teal: #005C78;
+  --white: #ffffff;
+  --black: #000000;
+  --text-primary: #2c2c2c;
+  --text-secondary: #666666;
 }
 
-/* Estilo de los títulos */
-h1 {
-  font-family: 'Helvetica', sans-serif;
-  font-weight: 700;
-  color: #e60023;  /* Color rojo tipo Pinterest */
+/* Contenedor principal */
+.home-container {
+  min-height: 100vh;
+  background-color: var(--white);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Estilo de las tarjetas */
-.card {
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Hero Section */
+.hero-section {
+  height: 70vh;
+  position: relative;
   overflow: hidden;
-  margin-bottom: 15px;  /* Espaciado entre las tarjetas */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Imágenes dentro de las tarjetas */
-.card-img-top {
-  height: 250px;  /* Establecemos un tamaño fijo para las imágenes */
-  object-fit: cover;
-  border-bottom: 2px solid #e5e5e5;  /* Borde sutil debajo de la imagen */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+  z-index: 0;
 }
 
-/* Estilo del cuerpo de la tarjeta */
-.card-body {
-  background-color: white;
-  padding: 15px;
-  font-family: 'Arial', sans-serif;
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--accent-teal) 0%, var(--dark-teal) 100%);
+  opacity: 0.8;
 }
 
-/* Títulos dentro de las tarjetas */
-.card-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
+.hero-section .overlay {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
-/* Estilo de los textos dentro de las tarjetas */
-.card-text {
-  color: #555;
+.hero-content {
+  text-align: center;
+  z-index: 3;
+  position: relative;
+}
+
+.hero-section h1 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.hero-section .lead {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+/* Botón principal */
+.btn-style-primary {
+  background: var(--primary-coral);
+  border: none;
+  color: var(--white);
+  padding: 12px 30px;
+  font-weight: 600;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-size: 0.9rem;
-  margin-top: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(232, 141, 103, 0.3);
+  text-decoration: none;
+  display: inline-block;
 }
 
-/* Diseño responsivo para la cuadrícula */
+.btn-style-primary:hover {
+  background: var(--dark-teal);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(232, 141, 103, 0.4);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Sección de categorías */
+.category-section {
+  background-color: var(--secondary-cream);
+  padding: 4rem 0;
+}
+
+.category-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.category-section .d-flex {
+  gap: 1rem !important;
+}
+
+/* Botones de categoría */
+.btn-outline-dark {
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
+  background: transparent;
+  font-weight: 500;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.btn-outline-dark:hover {
+  background: var(--text-primary);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.btn-outline-danger {
+  border: 2px solid var(--primary-coral);
+  color: var(--primary-coral);
+  background: transparent;
+  font-weight: 500;
+  padding: 10px 25px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 25px;
+}
+
+.btn-outline-danger:hover {
+  background: var(--primary-coral);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(232, 141, 103, 0.3);
+  text-decoration: none;
+}
+
+/* Sección del carrusel */
+.carousel-section {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.carousel-inner {
+  border-radius: 15px !important;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.carousel-item img {
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.02);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5% !important;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  margin: 0 20px;
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--accent-teal);
+  border-radius: 50%;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: var(--dark-teal);
+  transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.category-section .btn,
+.hero-section > div {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .card-img-top {
+  .hero-section {
+    height: 60vh;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1.1rem;
+  }
+  
+  .category-section h2 {
+    font-size: 2rem;
+  }
+  
+  .carousel-item img {
+    height: 250px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    margin: 0 10px;
+  }
+}
+
+/* Sección de noticias */
+.news-section {
+  background-color: var(--white);
+  padding: 4rem 0;
+}
+
+.news-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.news-card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.news-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.news-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.news-card .card-body {
+  padding: 1.5rem;
+}
+
+.news-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.news-card .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.news-card .card-author {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.btn-news {
+  background: transparent;
+  border: 2px solid var(--accent-teal);
+  color: var(--accent-teal);
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-news:hover {
+  background: var(--accent-teal);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 105, 137, 0.3);
+  text-decoration: none;
+}
+
+/* Responsive para noticias */
+@media (max-width: 768px) {
+  .news-section h2 {
+    font-size: 2rem;
+  }
+  
+  .news-card .card-img-top {
+    height: 180px;
+  }
+  
+  .news-card .card-body {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .news-section {
+    padding: 3rem 0;
+  }
+  
+  .news-card .card-img-top {
+    height: 160px;
+  }
+  
+  .news-card .card-title {
+    font-size: 1rem;
+  }
+  
+  .news-card .card-text {
+    font-size: 0.85rem;
+  }
+}
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-section .lead {
+    font-size: 1rem;
+  }
+  
+  .btn-style-primary {
+    padding: 10px 25px;
+    font-size: 0.8rem;
+  }
+  
+  .category-section {
+    padding: 3rem 0;
+  }
+  
+  .category-section .d-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem !important;
+  }
+  
+  .category-section .btn {
+    width: 200px;
+    text-align: center;
+  }
+  
+  .carousel-item img {
     height: 200px;
   }
-  .card-body {
-    padding: 10px;
-  }
-}
