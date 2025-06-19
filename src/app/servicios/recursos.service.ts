@@ -8,15 +8,13 @@ import { Foto } from '../interface/foto';
   providedIn: 'root'
 })
 export class RecursosService {
-  // Cambiamos la URL para que apunte al archivo JSON local
-  private apiUrl = 'assets/servicio.json';
+  private apiUrl = 'https://raw.githubusercontent.com/danieee5/ropa-servicio-json/main/ropa.json'; //usar raw para coger el mismo archivo 
 
   constructor(private http: HttpClient) { }
 
-  // Método para obtener fotos desde el archivo JSON
   getFotos(): Observable<Foto[]> {
-    return this.http.get<Foto[]>(this.apiUrl).pipe(
-      map(response => response)  // Simplemente devolvemos los datos como están
+    return this.http.get<any>(this.apiUrl).pipe(
+      map(response => response.prendas)
     );
   }
 }

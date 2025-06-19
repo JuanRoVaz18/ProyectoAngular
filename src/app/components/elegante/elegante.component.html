@@ -1,0 +1,39 @@
+<section class="container mt-5">
+  <h2 class="text-center text-light mb-4">Inspiración Elegante ✨</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <div class="col" *ngFor="let prenda of prendasElegantes">
+      <div class="card h-100 shadow-sm border-0 position-relative">
+        
+        <!-- Botón de favorito (corazón) -->
+        <button 
+          class="btn position-absolute top-0 end-0 m-2 border-0 bg-white-50 rounded-circle shadow-sm"
+          (click)="toggleFavorito(prenda)"
+          style="width: 40px; height: 40px; z-index: 1;">
+          <i 
+            class="fas fa-heart" 
+            [ngStyle]="{'color': esFavorito(prenda) ? '#e60023' : '#ccc', 'font-size': '18px'}">
+          </i>
+        </button>
+
+        <img [src]="prenda.url" class="card-img-top object-fit-cover" alt="{{ prenda.nombrePrenda }}" style="height: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ prenda.nombrePrenda }}</h5>
+          <p class="card-text mb-1"><strong>Valor:</strong> ${{ prenda.valor }}</p>
+          <p class="card-text mb-1"><strong>Género:</strong> {{ prenda.generoPrenda }}</p>
+          <p class="card-text mb-1"><strong>Usuario:</strong> {{ prenda.usuario }}</p>
+          <button class="btn btn-outline-secondary btn-sm mt-2" (click)="toggleEtiquetas(prenda.id)">
+            {{ mostrarEtiquetas(prenda.id) ? 'Ocultar etiquetas' : 'Ver etiquetas' }}
+          </button>
+          <div *ngIf="mostrarEtiquetas(prenda.id)" class="mt-2">
+            <span *ngFor="let tag of prenda.etiquetas" class="badge bg-dark-subtle text-dark me-1">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mensaje si no hay prendas elegantes -->
+  <div *ngIf="prendasElegantes.length === 0" class="text-center mt-4">
+    <p class="text-light">No se encontraron prendas elegantes.</p>
+  </div>
+</section>
