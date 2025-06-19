@@ -9,6 +9,7 @@ import { EleganteComponent } from './components/elegante/elegante.component';
 import { FavoritosComponent } from './components/favoritos/favoritos.component';
 
 import { CasualComponent } from './components/casual/casual.component';
+import { DeportivoComponent } from './components/deportivo/deportivo.component';
 
 export const routes: Routes = [
     {path: '', component: InicioComponent},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: 'aboutus', component: AboutUsComponent},
     {path: 'elegante', component: EleganteComponent},
     {path: 'favoritos', component: FavoritosComponent},
-    {path: 'casual', component: CasualComponent}
+    {path: 'casual', component: CasualComponent},
+    {path: 'deportivo', component: DeportivoComponent}
 ];
